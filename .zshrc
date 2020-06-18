@@ -54,7 +54,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=()
 
 # exports that should be up here
 export PATH="/usr/local/bin:$PATH"
@@ -96,14 +96,20 @@ HYPHEN_INSENSITIVE="true"
 # !!!!!!!!!!!!!!!!!!!!!!!!! ALIASES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # For a full list of active aliases, run `alias`.
 # General:
-alias ls="ls -GFha"
+alias ls="ls -lGFha"
+alias ga='git add'
+alias gc='git checkout $1'
+alias gcb='git checkout -b $1'
+alias gl='git pull'
+alias gp='git push'
+alias gs='git stash'
 alias gst='git status'
 alias gthb='cd /Users/ty/src/github'
 alias ml='cd ~/src/machine-learning'
 alias octave='/usr/local/octave/3.8.0/bin/octave-3.8.0'
 alias p='prometheus'
 alias plz="sudo !!"
-alias ports1='sudo lsof -PiTCP -sTCP:LISTEN'
+alias ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias python='python3'
 alias rpsql='brew services restart postgresql'
 alias sb='cd /Users/ty/src/github/switchback'
@@ -137,12 +143,14 @@ export NVM_DIR="/Users/ty/.nvm"
 
 
 ####################################### FUNCTIONS ##################################
-#function hello() {
-#echo 'hi'
-#}
+function gcm() {
+    msg="$@"
+    git commit -m $msg
+    }
 
-# repeatAll() {echo $@}
-#function gcm() {git commit -m "$@"}
+function hello() {
+echo 'hi'
+}
 
 
 ###################################################################################
